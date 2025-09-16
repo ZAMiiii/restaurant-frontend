@@ -1,4 +1,4 @@
-name: React App CI
+name: Vite React App CI
 
 on:
   push:
@@ -22,5 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build project (Vite)
         run: npm run build
+
+      - name: Preview build files
+        run: ls -R dist
