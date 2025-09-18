@@ -6,11 +6,12 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import BookingPage from "./pages/BookingPage.jsx";
 
-export default function App(){
+export default function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -18,6 +19,7 @@ export default function App(){
             <Route path="/booking" element={<BookingPage />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>

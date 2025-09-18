@@ -119,13 +119,23 @@ export default function BookingForm(){
       </form>
 
       {showModal && confirmed && (
-        <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label="Booking confirmation">
-          <div className="modal">
+        <div 
+          className="modal-backdrop" 
+          role="dialog" 
+          aria-modal="true" 
+          aria-label="Booking confirmation"
+          onClick={() => { setShowModal(false); setConfirmed(null); }}
+        >
+          <div 
+            className="modal" 
+            onClick={e => e.stopPropagation()}  // modal ke andar click ignore
+          >
             <h3>Booking Confirmed</h3>
             <p><strong>Name:</strong> {confirmed.name || "—"}</p>
             <p><strong>Date:</strong> {confirmed.date}</p>
             <p><strong>Time:</strong> {confirmed.time}</p>
             <p><strong>Guests:</strong> {confirmed.guests}</p>
+            {confirmed.occasion && <p><strong>Occasion:</strong> {confirmed.occasion}</p>}
             <p><strong>Contact:</strong> {confirmed.contact}</p>
             <div style={{display:'flex',justifyContent:'flex-end',gap:8, marginTop:10}}>
               <button className="btn" onClick={()=>{ setShowModal(false); setConfirmed(null); }}>Close</button>
